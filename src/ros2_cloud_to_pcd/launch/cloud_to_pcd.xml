@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="input/topic" default="/points_raw" description="Input pointcloud"/>
+    <arg name="output/path" default="/tmp/" description="Output path PCD files"/>
+    <arg name="output/prefix" default="cloud" description="Output path PCD files"/>
+
+    <node pkg="ros2_cloud_to_pcd" exec="cloud_to_pcd_node" name="cloud_to_pcd_node" output="screen">
+        <remap from="input/topic" to="$(var input/topic)"/>
+        <param name="output/path" value="$(var output/path)"/>
+        <param name="output/prefix" value="$(var output/prefix)"/>
+    </node>
+</launch>
