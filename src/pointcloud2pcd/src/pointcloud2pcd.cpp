@@ -25,7 +25,7 @@ private:
         pcl::PointCloud<pcl::PointXYZI>::Ptr cloud =
         std::make_shared<pcl::PointCloud<pcl::PointXYZI>>();
         pcl::fromROSMsg(*msg, *cloud);
-        pcl::io::savePCDFileASCII ("asd.pcd", *cloud);
+        pcl::io::savePCDFileASCII ("pointcloud2pcd.pcd", *cloud);
         RCLCPP_INFO(this->get_logger(), "points_size(%d,%d)",msg->height,msg->width);
     } 
 };
