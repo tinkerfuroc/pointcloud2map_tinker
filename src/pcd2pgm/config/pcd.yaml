@@ -1,6 +1,6 @@
 /pcd2pgm:
   ros__parameters:
-    file_directory: /home/grange/Program/Tinker/octomap_tinker/
+    file_directory: /home/grange/Program/Tinker/pointcloud2map_tinker/
     file_name: asd
     flag_pass_through: false
     map_resolution: 0.05

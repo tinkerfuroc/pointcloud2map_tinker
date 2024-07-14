@@ -15,6 +15,9 @@ public:
         : Node(name)
     {
         sub_novel = this->create_subscription<sensor_msgs::msg::PointCloud2>("/Laser_map", 10, std::bind(&PclSub::topic_callback, this, std::placeholders::_1));
+        this->declare_parameter("pcd_path", "pointcloud2pcd.pcd");
+        RCLCPP_INFO(this->get_logger(), "pointcloud2pcd node has been started.");
+        RCLCPP_INFO(this->get_logger(), "pcd_path: %s", this->get_parameter("pcd_path").as_string().c_str());
     }
 
 private:
@@ -25,8 +28,9 @@ private:
         pcl::PointCloud<pcl::PointXYZI>::Ptr cloud =
         std::make_shared<pcl::PointCloud<pcl::PointXYZI>>();
         pcl::fromROSMsg(*msg, *cloud);
-        pcl::io::savePCDFileASCII ("pointcloud2pcd.pcd", *cloud);
+        pcl::io::savePCDFileASCII (this->get_parameter("pcd_path").as_string().c_str(), *cloud);
         RCLCPP_INFO(this->get_logger(), "points_size(%d,%d)",msg->height,msg->width);
+        RCLCPP_INFO(this->get_logger(), "pcd file saved");
     } 
 };
 

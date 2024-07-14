@@ -1,6 +1,6 @@
 ﻿# Pointcloud2Map-Tinker
 
-Pointcloud2Map for Tinker is based on [pcd2pgm](git@github.com:LihanChen2004/pcd2pgm.git).
+Pointcloud2Map for Tinker is based on [pcd2pgm](https://github.com/LihanChen2004/pcd2pgm).
 
 This repository is used to convert the PointCloud2 data achieved when doing 3D SLAM to a grid map in pgm format.
 
@@ -35,6 +35,8 @@ If the convertion runs successfully, the pointcloud2 data will be saved in `poin
 ## Convert `.pcd` file to `.pgm` grid map
 
 ### Convert Map
+
+You can change the file_directory & file_name of the `.pgm` file in `/pcd2pgm/config/pcd.yaml`
 
 ```shell
 ros2 launch pcd2pgm pcd2pgm.launch.py
